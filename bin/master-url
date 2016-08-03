@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/master-url
-# output the spark master url based on SPARK_MASTERS and HEROKU_DNS_APP_NAME env vars.
+# output the spark master url based on SPARK_MASTER_APP and SPARK_MASTERS env vars.
 
 set -e
 
@@ -10,10 +10,10 @@ MASTER_URL="spark://"
 
 if [ -z "$SPARK_MASTERS" ];
 then
-  MASTER_URL="${MASTER_URL}1.master.$HEROKU_DNS_APP_NAME:7077,"
+  MASTER_URL="${MASTER_URL}1.master.$SPARK_MASTER_APP.app.localspace:7077,"
 else
   for i in $(seq 1 1 $SPARK_MASTERS); do
-    MASTER_URL="${MASTER_URL}$i.master.$HEROKU_DNS_APP_NAME:7077,"
+    MASTER_URL="${MASTER_URL}$i.master.$SPARK_MASTER_APP.app.localspace:7077,"
   done
 fi
 
