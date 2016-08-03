@@ -14,7 +14,7 @@ cd $build_dir
 echo -n "-----> Installing Zepplin..."
 curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-netinst.tgz | tar xz
 mv zeppelin-0.6.0-bin-netinst zeppelin-home
-mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
+#mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 echo " Done."
 
 
