@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+# heroku inline buildpack
+
+set -e
+
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+bp_dir=$(dirname $(dirname $0))
+
+cd $build_dir
+
+
+echo -n "-----> Installing Zepplin..."
+curl -s -O https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-netinst.tgz
+echo " Done."
+
+
+
+

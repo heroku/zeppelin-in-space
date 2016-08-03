@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# bin/detect
+# heroku inline buildpack
+
+
+echo "Zepplin"
+exit 0
