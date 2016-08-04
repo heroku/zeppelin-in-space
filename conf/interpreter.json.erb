@@ -96,15 +96,11 @@
       "interpreterGroup": [
         {
           "class": "org.apache.zeppelin.postgresql.PostgreSqlInterpreter",
-          "name": "postgresql"
+          "name": "sql"
         }
       ],
-      "dependencies": [],
       "option": {
-        "remote": true,
-        "perNoteSession": false,
-        "perNoteProcess": false,
-        "isExistingProcess": false
+        "remote": true
       }
     }
     <%  if ENV['DATABASE_INTERPRETER_URLS'].include?(',') && ! ENV['DATABASE_INTERPRETER_URLS'].end_with?(",#{db}") %>
