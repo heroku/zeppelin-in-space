@@ -69,6 +69,37 @@
     <% end %>
     <% end %>
     <% end %>
+
+    <% if ENV['DATABASE_INTERPRETER_URLS'] %>
+    <%  if ENV['SPARK_INTERPRETER_APPS'].include?(',')
+        #WE HAD A SPARK  BEFORE US
+    %>
+    ,
+    <% end %>
+    <% ENV['DATABASE_INTERPRETER_URLS'].split(',').each do |db| %>
+    <% if ENV[db]
+       require 'uri'
+       dburi = URI(ENV[db])
+    %>
+
+    "<%= db %>": {
+      "id": "<%= db %>",
+      "name": "<%= db %>",
+      "group": "postgres",
+      "properties": {
+        "common.max_count": 1000,
+        "default.driver": "org.postgresql.Driver",
+        "default.user": "<%= dburi.user %>",
+        "default.password": "<%= dburi.password %>",
+        "default.url": "<%= "jdbc:postgresql://#{dburi.host}:#{dburi.port}#{dburi.path}" %>"
+      }
+    }
+    <%  if ENV['DATABASE_INTERPRETER_URLS'].include?(',') && ! ENV['DATABASE_INTERPRETER_URLS'].end_with?(",#{db}") %>
+  ,
+    <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
   } <%# end interpreterSettings%>,
 
 
