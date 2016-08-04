@@ -14,6 +14,14 @@ cd $build_dir
 echo -n "-----> Installing Zeppelin..."
 curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-all.tgz | tar xz
 mv zeppelin-0.6.0-bin-all zeppelin-home
+rm -rf  $build_dir/zeppelin-home/interpreter/alluxio
+rm -rf  $build_dir/zeppelin-home/interpreter/cassandra
+rm -rf  $build_dir/zeppelin-home/interpreter/elasticsearch
+rm -rf  $build_dir/zeppelin-home/interpreter/flink
+rm -rf  $build_dir/zeppelin-home/interpreter/hbase
+rm -rf  $build_dir/zeppelin-home/interpreter/ignite
+rm -rf  $build_dir/zeppelin-home/interpreter/lens
+rm -rf  $build_dir/zeppelin-home/interpreter/livy
 mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/zeppelin-site.xml $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/log4j.properties $build_dir/zeppelin-home/conf
