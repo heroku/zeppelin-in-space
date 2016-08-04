@@ -1,2 +1,2 @@
 console: bin/sleep
-web: bin/zeppelin
+web: with_jdwp bin/zeppelin
