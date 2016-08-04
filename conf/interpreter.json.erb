@@ -92,6 +92,19 @@
         "default.user": "<%= dburi.user %>",
         "default.password": "<%= dburi.password %>",
         "default.url": "<%= "jdbc:postgresql://#{dburi.host}:#{dburi.port}#{dburi.path}" %>"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.postgresql.PostgreSqlInterpreter",
+          "name": "postgresql"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
       }
     }
     <%  if ENV['DATABASE_INTERPRETER_URLS'].include?(',') && ! ENV['DATABASE_INTERPRETER_URLS'].end_with?(",#{db}") %>
