@@ -3,5 +3,5 @@
 # heroku inline buildpack
 
 
-echo "Zepplin"
+echo "Zeppelin"
 exit 0
