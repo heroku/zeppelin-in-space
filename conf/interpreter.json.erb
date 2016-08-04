@@ -87,11 +87,11 @@
       "name": "<%= db %>",
       "group": "postgres",
       "properties": {
-        "common.max_count": 1000,
-        "default.driver": "org.postgresql.Driver",
-        "default.user": "<%= dburi.user %>",
-        "default.password": "<%= dburi.password %>",
-        "default.url": "<%= "jdbc:postgresql://#{dburi.host}:#{dburi.port}#{dburi.path}" %>"
+        "postgresql.max.result": 1000,
+        "postgresql.driver": "org.postgresql.Driver",
+        "postgresql.user": "<%= dburi.user %>",
+        "postgresql.password": "<%= dburi.password %>",
+        "postgresql.url": "<%= "jdbc:postgresql://#{dburi.host}:#{dburi.port}#{dburi.path}" %>"
       },
       "interpreterGroup": [
         {
