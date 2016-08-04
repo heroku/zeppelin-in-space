@@ -71,7 +71,7 @@
     <% end %>
 
     <% if ENV['DATABASE_INTERPRETER_URLS'] %>
-    <%  if ENV['SPARK_INTERPRETER_APPS'].include?(',')
+    <%  if ENV['SPARK_INTERPRETER_APPS']
         #WE HAD A SPARK  BEFORE US
     %>
     ,
