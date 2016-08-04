@@ -1,8 +1,10 @@
 {
   "interpreterSettings": {
-    "2BUEZ48SP": {
-      "id": "2BUEZ48SP",
-      "name": "spark",
+    <% if ENV['SPARK_INTERPRETER_APPS'] %>
+    <% ENV['SPARK_INTERPRETER_APPS'].split(',').each do |spark_interpreter| %>
+    "<%= spark_interpreter %>": {
+      "id": "<%= spark_interpreter %>",
+      "name": "<%= spark_interpreter %>",
       "group": "spark",
       "properties": {
         "spark.executor.memory": "",
@@ -18,7 +20,15 @@
         "zeppelin.dep.localrepo": "local-repo",
         "zeppelin.R.knitr": "true",
         "zeppelin.spark.maxResult": "1000",
-        "master": "spark://1.master.spark-in-space.app.localspace:7077",
+
+        "master": "<%=
+        masters = (ENV['SPARK_MASTERS'] || '1').to_i
+        master = 'spark://'
+        (1..masters).each do |i|
+          master = master + "#{i}.master.#{spark_interpreter}.app.localspace:7077"
+        end
+        master
+        %>",
         "spark.app.name": "Zeppelin",
         "zeppelin.R.image.width": "100%",
         "zeppelin.R.render.options": "out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F",
@@ -54,7 +64,16 @@
         "isExistingProcess": false
       }
     }
-  },
+    <%  if ENV['SPARK_INTERPRETER_APPS'].include?(',') && ! ENV['SPARK_INTERPRETER_APPS'].end_with?(",#{spark_interpreter}") %>
+    ,
+    <% end %>
+    <% end %>
+    <% end %>
+  } <%# end interpreterSettings%>,
+
+
+
+
   "interpreterBindings": {},
   "interpreterRepositories": [
     {

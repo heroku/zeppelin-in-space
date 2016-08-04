@@ -16,7 +16,6 @@ curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-netinst.tgz | t
 mv zeppelin-0.6.0-bin-netinst zeppelin-home
 mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/zeppelin-site.xml $build_dir/zeppelin-home/conf
-mv $bp_dir/conf/interpreter.json $build_dir/zeppelin-home/conf
 echo " Done."
 
 
