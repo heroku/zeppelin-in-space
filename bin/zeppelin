@@ -4,5 +4,6 @@
 set -e
 
 erb /app/conf/interpreter.json.erb > /app/zeppelin-home/conf/interpreter.json
+erb /app/conf/log4j.properties.erb > /app/zeppelin-home/conf/log4j.properties
 
 /app/zeppelin-home/bin/zeppelin.sh "$@"

@@ -1,0 +1,54 @@
+{
+  "name": "zeppelin-in-space",
+  "description": "zeppelin based spark and postgres notebooks in a private space",
+  "keywords": [
+    "spark",
+    "zeppelin",
+    "private-spaces",
+    "dns-discovery"
+  ],
+  "repository": "https://github.com/heroku/zeppelin-in-space",
+  "env": {
+    "ZEPPELIN_BASIC_AUTH": {
+      "description": "nginx basic auth",
+      "value": "zeppelin:{PLAIN}space"
+    },
+    "LOG_LEVEL": {
+      "description": "log4j log level for spark",
+      "value":  "INFO"
+    },
+    "SPARK_INTERPRETER_APPS": {
+      "description": "comma seperated list of spark-in-space clusters you want to notebook ok",
+      "required": false
+    },
+    "DATABASE_INTERPRETER_URLS": {
+      "description": "comma seperated list of database url config var names (DATABASE_URL,OTHER_URL)",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "Private-S"
+    },
+    "zeppelin": {
+      "quantity": 1,
+      "size": "Private-L"
+    }
+  },
+  "image": "heroku/jvm",
+  "addons": [
+    {
+      "plan": "bucketeer",
+      "as": "ZEPPELIN_S3"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "http://github.com/kr/heroku-buildpack-inline.git"
+    },
+    {
+      "url": "http://github.com/heroku/heroku-buildpack-jvm-common.git"
+    }
+  ]
+}

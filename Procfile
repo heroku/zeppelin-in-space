@@ -1,2 +1,3 @@
 console: bin/sleep
-web: bin/zeppelin
+web: bin/proxy-zeppelin
+zeppelin bin/zeppelin
