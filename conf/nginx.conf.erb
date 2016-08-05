@@ -57,6 +57,7 @@ http {
 
     location /ws {  # For websocket support
 		    proxy_pass    http://$cookie_backend;
+   		  resolver <%= ENV["RESOLVER"] %>;
         proxy_http_version 1.1;
         proxy_set_header Upgrade websocket;
         proxy_set_header Connection upgrade;
