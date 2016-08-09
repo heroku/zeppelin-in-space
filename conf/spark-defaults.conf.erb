@@ -11,4 +11,6 @@ spark.hadoop.fs.s3a.awsAccessKeyId=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
 spark.hadoop.fs.s3a.awsSecretAccessKey=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
 spark.hadoop.fs.s3a.access.key=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
 spark.hadoop.fs.s3a.secret.key=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
+spark.hadoop.fs.s3public.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
+spark.hadoop.fs.AbstractFileSystem.s3public.impl=org.apache.hadoop.fs.s3a.S3A
 <% end %>
