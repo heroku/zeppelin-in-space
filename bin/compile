@@ -31,6 +31,7 @@ $build_dir/zeppelin-home/bin/install-interpreter.sh --name postgresql
 rm -rf  $build_dir/zeppelin-home/interpreter/spark/dep
 rm -rf  $build_dir/zeppelin-home/interpreter/spark/R
 rm -rf  $build_dir/zeppelin-home/interpreter/spark/pyspark
+rm -rf  $build_dir/zeppelin-home/tmp
 mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/zeppelin-site.xml $build_dir/zeppelin-home/conf
 finish Installing Zeppelin
