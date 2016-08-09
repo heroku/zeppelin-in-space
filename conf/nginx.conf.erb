@@ -35,12 +35,12 @@ http {
     location ~ /set-backend/(?<spark_backend>([^/]*))$ {
       add_header Set-Cookie "backend=$spark_backend;Path=/";
       default_type "text/html";
-      alias /app/nginx/conf/set-backend.html;
+      alias /app/space-proxy/nginx/conf/set-backend.html;
     }
 
 		location  / {
 			auth_basic           "zeppelin-in-space";
-      auth_basic_user_file /app/nginx/conf/htpasswd;
+      auth_basic_user_file /app/space-proxy/nginx/conf/htpasswd;
 		  if ($http_cookie !~* "backend") {
         	return 307 $scheme://$host/set-backend/1.zeppelin.<%= ENV["HEROKU_DNS_APP_NAME"] %>:8080;
       }
