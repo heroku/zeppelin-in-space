@@ -9,43 +9,27 @@ cache_dir=$2
 env_dir=$3
 bp_dir=$(dirname $(dirname $0))
 
-fetch_nginx_tarball() {
-    local version="1.9.5"
-    local tarball_file="nginx-$version.tgz"
-    local stack="cedar-14"
-    local nginx_tarball_url="https://s3-external-1.amazonaws.com/heroku-spark/nginx-1.9.5.tgz"
-    local dest_path="$cache_dir/$stack/$tarball_file"
 
-    if [ -f "$dest_path" ]; then
-        echo -n "cat $dest_path"
-    else
-        echo -n "curl -s -L $nginx_tarball_url"
-    fi
+notice() {
+  echo "-----> $@..."
 }
 
+start() {
+  echo -n "-----> $@..."
+}
 
+finish() {
+  echo " Done."
+}
 
 cd $build_dir
 
-echo -n "-----> Installing Zeppelin..."
-curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-all.tgz | tar xz
-mv zeppelin-0.6.0-bin-all zeppelin-home
-rm -rf  $build_dir/zeppelin-home/interpreter/alluxio
-rm -rf  $build_dir/zeppelin-home/interpreter/cassandra
-rm -rf  $build_dir/zeppelin-home/interpreter/elasticsearch
-rm -rf  $build_dir/zeppelin-home/interpreter/flink
-rm -rf  $build_dir/zeppelin-home/interpreter/hbase
-rm -rf  $build_dir/zeppelin-home/interpreter/ignite
-rm -rf  $build_dir/zeppelin-home/interpreter/lens
-rm -rf  $build_dir/zeppelin-home/interpreter/livy
+start Installing Zeppelin
+curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.0-bin-netinst.tgz | tar xz
+mv zeppelin-0.6.0-netinst-all zeppelin-home
+./zeppelin-home/bin/install-interpreter.sh --name postgresql
 mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/zeppelin-site.xml $build_dir/zeppelin-home/conf
-echo " Done."
+finish Installing Zeppelin
 
-echo -n "-----> Installing NGINX..."
-mkdir -p $build_dir/nginx/bin
-mkdir -p $build_dir/nginx/conf
-mkdir -p $build_dir/nginx/logs
-$(fetch_nginx_tarball) | tar xzC $build_dir/nginx/bin
-echo " Done."
 
