@@ -52,6 +52,6 @@
     },
     {
       "url": "http://github.com/kr/heroku-buildpack-inline.git"
-    },
+    }
   ]
 }
