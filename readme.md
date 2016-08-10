@@ -8,3 +8,4 @@ or heroku postgres attached.
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/heroku/zeppelin-in-space)
 
 
+TODO GC LOGS ON ZEP AND SPARK!
