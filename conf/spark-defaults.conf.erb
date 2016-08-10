@@ -13,4 +13,9 @@ spark.hadoop.fs.s3a.access.key=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
 spark.hadoop.fs.s3a.secret.key=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
 spark.hadoop.io.compression.codecs=org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.BZip2Codec,com.hadoop.compression.lzo.LzoCodec,com.hadoop.compression.lzo.LzopCodec
 spark.hadoop.io.compression.codec.lzo.class=com.hadoop.compression.lzo.LzoCodec
+spark.hadoop.fs.s3n.impl=org.apache.hadoop.fs.s3native.NativeS3FileSystem
+spark.hadoop.fs.s3n.awsAccessKeyId=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
+spark.hadoop.fs.s3n.awsSecretAccessKey=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
+spark.hadoop.fs.s3n.access.key=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
+spark.hadoop.fs.s3n.secret.key=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
 <% end %>
