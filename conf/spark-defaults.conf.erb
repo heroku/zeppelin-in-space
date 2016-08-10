@@ -18,4 +18,5 @@ spark.hadoop.fs.s3n.awsAccessKeyId=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
 spark.hadoop.fs.s3n.awsSecretAccessKey=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
 spark.hadoop.fs.s3n.access.key=<%= ENV["ZEPPELIN_S3_AWS_ACCESS_KEY_ID"] %>
 spark.hadoop.fs.s3n.secret.key=<%= ENV["ZEPPELIN_S3_AWS_SECRET_ACCESS_KEY"] %>
+spark.hadoop.fs.s3n.multipart.uploads.block.size=536870912
 <% end %>
