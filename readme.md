@@ -49,7 +49,6 @@ To add more spark-in-space clusters to the zeppelin interpreter list, simply set
 
 ```
 heroku config:set SPARK_INTERPRETER_APPS=my-spark-cluster,my-other-spark-cluster -a $app
-
 ```
 
 You can set the binding for your previously created notebook by clicking the black settings icon in the top right corner.
