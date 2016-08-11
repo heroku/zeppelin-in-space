@@ -45,16 +45,16 @@
   ],
   "buildpacks": [
     {
-      "url": "http://github.com/heroku/heroku-buildpack-space-proxy.git"
+      "url": "https://github.com/heroku/heroku-buildpack-space-proxy.git"
     },
     {
-      "url": "http://github.com/heroku/spark-in-space.git"
+      "url": "https://github.com/heroku/spark-in-space.git"
     },
     {
-      "url": "http://github.com/heroku/heroku-buildpack-jvm-common.git"
+      "url": "https://github.com/heroku/heroku-buildpack-jvm-common.git"
     },
     {
-      "url": "http://github.com/kr/heroku-buildpack-inline.git"
+      "url": "https://github.com/kr/heroku-buildpack-inline.git"
     }
   ]
 }
