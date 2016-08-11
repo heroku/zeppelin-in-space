@@ -45,7 +45,7 @@ You can also look at the spark cluster ui to see what is runing. See the spark-i
 
 ### adding more spark clusters
 
-To add more spark-in-space clusters to the zeppelin interpreter list, simply set the `SPARK_INTERPRETER_APPS`.
+To add more spark-in-space clusters to the zeppelin interpreter list, simply set the `SPARK_INTERPRETER_APPS`, in a comma seperated format.
 
 ```
 heroku config:set SPARK_INTERPRETER_APPS=my-spark-cluster,my-other-spark-cluster -a $app
