@@ -33,6 +33,8 @@ http {
 		keepalive_timeout 5;
 
     location ~ /set-backend/(?<spark_backend>([^/]*))$ {
+      auth_basic           "zeppelin-in-space";
+      auth_basic_user_file /app/space-proxy/nginx/conf/htpasswd;
       add_header Set-Cookie "backend=$spark_backend;Path=/";
       default_type "text/html";
       alias /app/space-proxy/nginx/conf/set-backend.html;
@@ -56,12 +58,14 @@ http {
     }
 
     location /ws {  # For websocket support
-		    proxy_pass    http://$cookie_backend;
-   		  resolver <%= ENV["RESOLVER"] %>;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade websocket;
-        proxy_set_header Connection upgrade;
-        proxy_read_timeout 86400;
+      auth_basic           "zeppelin-in-space";
+      auth_basic_user_file /app/space-proxy/nginx/conf/htpasswd;
+      proxy_pass    http://$cookie_backend;
+      resolver <%= ENV["RESOLVER"] %>;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade websocket;
+      proxy_set_header Connection upgrade;
+      proxy_read_timeout 86400;
     }
 
 	}
