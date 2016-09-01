@@ -9,9 +9,9 @@
   ],
   "repository": "https://github.com/heroku/zeppelin-in-space",
   "env": {
-    "ZEPPELIN_BASIC_AUTH": {
-      "description": "nginx basic auth",
-      "value": "zeppelin:{PLAIN}space"
+    "ZEPPELIN_ADMIN_PASSWORD": {
+      "description": "Password for 'admin' user access.",
+      "value": "hydrogenisflammable"
     },
     "LOG_LEVEL": {
       "description": "log4j log level for spark",
