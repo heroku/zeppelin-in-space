@@ -29,10 +29,6 @@
   "formation": {
     "web": {
       "quantity": 1,
-      "size": "Private-S"
-    },
-    "zeppelin": {
-      "quantity": 1,
       "size": "Private-L"
     }
   },
@@ -44,9 +40,6 @@
     }
   ],
   "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-space-proxy.git"
-    },
     {
       "url": "https://github.com/heroku/spark-in-space.git"
     },

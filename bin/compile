@@ -37,11 +37,3 @@ rm -rf  $build_dir/zeppelin-home/tmp
 mv $bp_dir/conf/zeppelin-env.sh $build_dir/zeppelin-home/conf
 mv $bp_dir/conf/zeppelin-site.xml $build_dir/zeppelin-home/conf
 notice Done.
-
-start Configuring NGINX
-mv $bp_dir/conf/htpasswd.erb $build_dir/space-proxy/conf
-mv $bp_dir/conf/nginx.conf.erb $build_dir/space-proxy/conf
-finish Configuring NGINX
-
-
-
