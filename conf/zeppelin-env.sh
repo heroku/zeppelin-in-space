@@ -9,4 +9,4 @@ export ZEPPELIN_PORT=$PORT
 export SPARK_LOCAL_IP=$HEROKU_PRIVATE_IP
 export SPARK_PUBLIC_DNS=$HEROKU_DNS_DYNO_NAME
 export SPARK_HOME=/app/spark-home
-export SPARK_SUBMIT_OPTIONS='--jars=/app/spark-home/lib/hadoop-aws-shaded.jar:/app/spark-home/lib/hadoop-lzo.jar'
+export SPARK_SUBMIT_OPTIONS='--jars=/app/spark-home/lib/hadoop-aws-shaded.jar,/app/spark-home/lib/hadoop-lzo.jar'

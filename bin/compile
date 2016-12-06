@@ -18,7 +18,7 @@ start() {
   echo -n "-----> $@..."
 }
 
-finish() {
+finish() {I
   echo " Done."
 }
 
