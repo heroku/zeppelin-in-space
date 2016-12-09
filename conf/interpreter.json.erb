@@ -7,7 +7,8 @@
       "name": "<%= spark_interpreter %>",
       "group": "spark",
       "properties": {
-        "spark.executor.memory": "12g",
+        "spark.executor.memory":"<%= ENV["SPARK_EXECUTOR_MEMORY"] || '12g' %>",
+        "spark.driver.memory":"<%= ENV["SPARK_DRIVER_MEMORY"] || '10g' %>",
         "args": "",
         "zeppelin.spark.printREPLOutput": "true",
         "spark.cores.max": "",
