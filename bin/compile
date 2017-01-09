@@ -30,6 +30,7 @@ curl -s https://s3.amazonaws.com/heroku-spark/zeppelin-0.6.2-bin-netinst.tgz | t
 mv zeppelin-0.6.2-bin-netinst zeppelin-home
 notice SLF4J warnings are ok
 $build_dir/zeppelin-home/bin/install-interpreter.sh --name postgresql 2>&1 | sed  's/^/         /'
+$build_dir/zeppelin-home/bin/install-interpreter.sh --name python 2>&1 | sed  's/^/         /'
 #rm -rf  $build_dir/zeppelin-home/interpreter/spark/dep
 rm -rf  $build_dir/zeppelin-home/interpreter/spark/R
 rm -rf  $build_dir/zeppelin-home/interpreter/spark/pyspark

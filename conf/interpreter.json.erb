@@ -1,5 +1,26 @@
 {
   "interpreterSettings": {
+    "python-tensorflow": {
+      "id": "python-tensorflow",
+      "name": "python",
+      "group": "python",
+      "properties": {
+        "zeppelin.python": "python"
+      },
+      "interpreterGroup": [
+        {
+          "class": "org.apache.zeppelin.python.PythonInterpreter",
+          "name": "python"
+        }
+      ],
+      "dependencies": [],
+      "option": {
+        "remote": true,
+        "perNoteSession": false,
+        "perNoteProcess": false,
+        "isExistingProcess": false
+      }
+    },
     <% if ENV['SPARK_INTERPRETER_APPS'] %>
     <% ENV['SPARK_INTERPRETER_APPS'].split(',').each do |spark_interpreter| %>
     "<%= spark_interpreter %>": {
