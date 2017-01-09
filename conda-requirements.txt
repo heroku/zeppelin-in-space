@@ -1,1 +1,5 @@
+tensorflow
+keras
 matplotlib
+boto3
+h5py
